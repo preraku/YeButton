@@ -13,8 +13,6 @@ public class YeButton extends AppCompatActivity {
     MediaPlayer[] mySounds;
 
     // Individual sounds stored at YeButton/app/src/main/res/raw/
-    MediaPlayer mySound;
-    MediaPlayer famousSound;
     MediaPlayer answerssway;
     MediaPlayer beenlikethat;
     MediaPlayer bush;
@@ -28,6 +26,8 @@ public class YeButton extends AppCompatActivity {
     MediaPlayer wavydude;
     MediaPlayer hityebutton;
     MediaPlayer currentlyPlaying;
+    MediaPlayer immaletyou;
+    MediaPlayer president;
 
     // Total number of sounds. Created in onCreate, but also used in playMyMusic()
     int numSounds;
@@ -37,6 +37,9 @@ public class YeButton extends AppCompatActivity {
 
     // Random used to determine next sound to play
     Random myRandom = new Random();
+
+    // Debugging array
+    int[] didNotPlay;
 
 
     /**
@@ -70,8 +73,6 @@ public class YeButton extends AppCompatActivity {
 //        });
 
         // Initialize songs
-        mySound = MediaPlayer.create(this, R.raw.stronger);
-        famousSound = MediaPlayer.create(this, R.raw.famous);
         answerssway = MediaPlayer.create(this, R.raw.answerssway);
         beenlikethat = MediaPlayer.create(this, R.raw.beenlikethat);
         bush = MediaPlayer.create(this, R.raw.bush);
@@ -84,13 +85,15 @@ public class YeButton extends AppCompatActivity {
         wavybaby = MediaPlayer.create(this, R.raw.wavybaby);
         wavydude = MediaPlayer.create(this, R.raw.wavydude);
         hityebutton = MediaPlayer.create(this, R.raw.hityebutton);
-
+        immaletyou = MediaPlayer.create(this, R.raw.immaletyou);
+        president = MediaPlayer.create(this, R.raw.president);
 
         // Store all sounds in MediaPlayer[] mySounds
-        mySounds = new MediaPlayer[]{mySound, famousSound, answerssway, beenlikethat, bush, gaga,
+        mySounds = new MediaPlayer[]{answerssway, beenlikethat, bush, gaga,
                 inmycode, justtoldyou, rockstar, youngmetro, whatsgood, wavybaby, wavydude,
                 hityebutton};
         numSounds = mySounds.length;
+        didNotPlay = new int[numSounds];
         System.out.println("mySound initialized");
 
     }
@@ -101,7 +104,7 @@ public class YeButton extends AppCompatActivity {
      */
     public void playMyMusic(View view) {
         // Internal testing
-        System.out.print("playMyMusic called");
+        //System.out.print("playMyMusic called");
 
         // If sound is currently playing, want to stop playing it first, THEN play a new sound.
         // Else, it will play multiple sounds simultaneously
@@ -138,4 +141,16 @@ public class YeButton extends AppCompatActivity {
         // methods I write
         onPause();
     }
+
+    // Debugging code. To use, uncomment the below and the commented portions of
+    // activity_ye_button.xml
+//    public void addNoPlay(View view) {
+//        didNotPlay[lastPlayed]++;
+//    }
+//
+//    public void debugToConsole(View view) {
+//        for (int i = 0; i < numSounds; i++) {
+//            System.out.println("Sound " + (i + 1) + ": " + didNotPlay[i]);
+//        }
+//    }
 }

@@ -28,4 +28,27 @@
         android:id="@+id/button"
         android:layout_below="@+id/yeButton"
         android:layout_centerHorizontal="true" />
+    <!--Debugging code follows. To use, uncomment below and uncomment addNoPlay()
+    and debugToConsole() in YeButton.java-->
+    <!--<Button-->
+    <!--style="?android:attr/buttonStyleSmall"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Didn&apos;t play"-->
+    <!--android:onClick="addNoPlay"-->
+    <!--android:id="@+id/button2"-->
+    <!--android:layout_below="@+id/button"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="50dp" />-->
+
+    <!--<Button-->
+    <!--style="?android:attr/buttonStyleSmall"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="output"-->
+    <!--android:onClick="debugToConsole"-->
+    <!--android:id="@+id/button3"-->
+    <!--android:layout_below="@+id/button2"-->
+    <!--android:layout_alignEnd="@+id/button2"-->
+    <!--android:layout_alignStart="@+id/button2" />-->
 </RelativeLayout>
