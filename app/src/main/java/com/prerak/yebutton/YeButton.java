@@ -32,6 +32,9 @@ public class YeButton extends AppCompatActivity {
     // Total number of sounds. Created in onCreate, but also used in playMyMusic()
     int numSounds;
 
+    // Stores last played track. 0 just for the start
+    int lastPlayed = 0;
+
     // Random used to determine next sound to play
     Random myRandom = new Random();
 
@@ -108,6 +111,12 @@ public class YeButton extends AppCompatActivity {
 
         // Select the next song to play from the mySounds[] array and store in currentlyPlaying
         int nowPlayingTrackNum = myRandom.nextInt(numSounds);
+        // Don't play the same sound twice in a row
+        while (nowPlayingTrackNum == lastPlayed) {
+            nowPlayingTrackNum = myRandom.nextInt(numSounds);
+            System.out.println("Prevented repeat");
+        }
+        lastPlayed = nowPlayingTrackNum;
         currentlyPlaying = mySounds[nowPlayingTrackNum];
 
         // Need to make sure the sound is starting from 0 seconds, otherwise, if it was playing
@@ -116,7 +125,7 @@ public class YeButton extends AppCompatActivity {
         currentlyPlaying.start();
 
         // Internal testing
-        System.out.println(numSounds);
+        System.out.println(lastPlayed);
     }
 
     /**
